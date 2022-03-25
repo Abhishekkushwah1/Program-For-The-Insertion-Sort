@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+void printArray(int arr[], int x) {
+  for (int i = 0; i < x; i++) {
+    printf("%d ", arr[i]);
+  }
+  printf("\n");
+}
+
+void insertionSort(int arr[], int x) {
+  for (int step = 1; step < x; step++) {
+    int y = arr[step];
+    int j = step - 1;
+
+    while (y < arr[j] && j >= 0) {
+      arr[j + 1] = arr[j];
+      --j;
+    }
+    arr[j + 1] = y;
+  }
+}
+
+int main() {
+  int values[] = {0, 30, 54, 86, 77};
+  int x = sizeof(values) / sizeof(values[0]);
+  insertionSort(values, x);
+  printf("The Given Array Is Sorted In Ascending Order:\n");
+  printArray(values, x);
+}
